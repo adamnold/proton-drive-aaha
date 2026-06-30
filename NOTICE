@@ -1,0 +1,21 @@
+Proton Drive (AAHA)
+Copyright 2026 Adam And His Agents (AAHA)
+
+This product is licensed under the Apache License, Version 2.0.
+
+--------------------------------------------------------------------------
+Trademark & affiliation disclaimer
+--------------------------------------------------------------------------
+This is an UNOFFICIAL, third-party desktop wrapper. It is NOT affiliated
+with, endorsed by, or sponsored by Proton AG. "Proton", "Proton Drive",
+and related names and logos are trademarks of Proton AG.
+
+This project contains only the wrapper/launcher code authored by
+Adam And His Agents. It loads the official Proton Drive web app
+(https://drive.proton.me) inside an Electron window. It does not include,
+modify, or redistribute Proton's software or service. The Proton Drive
+icon included here is the property of Proton AG and is used solely to
+identify the app being launched.
+
+Your use of Proton Drive through this wrapper remains subject to Proton's
+own Terms of Service and Privacy Policy.

@@ -1,0 +1,41 @@
+{
+  "name": "proton-drive",
+  "productName": "Proton Drive",
+  "version": "1.0.0",
+  "description": "Proton Drive desktop app (Electron wrapper)",
+  "main": "src/main.js",
+  "author": "Adam And His Agents (AAHA)",
+  "license": "Apache-2.0",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --linux"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.adamandhisagents.protondrive",
+    "productName": "Proton Drive",
+    "asar": true,
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "linux": {
+      "target": [
+        "dir",
+        "AppImage"
+      ],
+      "category": "Network",
+      "icon": "icons",
+      "executableName": "proton-drive",
+      "desktop": {
+        "Name": "Proton Drive",
+        "Comment": "Secure encrypted cloud storage",
+        "Categories": "Network;FileTransfer;",
+        "StartupWMClass": "Proton Drive"
+      }
+    }
+  }
+}
