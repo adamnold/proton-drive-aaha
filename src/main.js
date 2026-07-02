@@ -10,6 +10,26 @@ if (process.platform === "linux") {
   app.commandLine.appendSwitch("class", cfg.wmClass);
 }
 
+// ---------------------------------------------------------------------------
+//  PRIVACY HARDENING
+//  Electron's embedded Chromium already omits most browser-level Google
+//  services (Safe Browsing, sync, GoogleURLTracker, the Chrome updater, etc.)
+//  because it is an app runtime, not a browser. These switches make that
+//  explicit and shut off the remaining background/phone-home subsystems so
+//  the app stays network-silent except for the site it wraps.
+//  Set cfg.disableHardening = true in app.config.js to opt out.
+// ---------------------------------------------------------------------------
+if (!cfg.disableHardening) {
+  app.commandLine.appendSwitch("disable-background-networking");
+  app.commandLine.appendSwitch("disable-domain-reliability");
+  app.commandLine.appendSwitch("disable-component-update");
+  app.commandLine.appendSwitch(
+    "disable-features",
+    "NetworkTimeServiceQuerying,Translate,OptimizationHints,MediaRouter"
+  );
+  app.commandLine.appendSwitch("disable-breakpad");
+}
+
 let mainWindow;
 
 function hostMatches(urlString) {

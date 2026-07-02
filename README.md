@@ -116,3 +116,18 @@ The wrapper/launcher code in this repository is licensed under the
 **Apache License, Version 2.0** — see `LICENSE`. This license applies only
 to the code authored here; it does not cover Proton Drive, Proton's
 software/service, or Proton's trademarks and logos. See `NOTICE`.
+
+---
+
+## Privacy hardening (v1.1+, on by default)
+
+This app launches with Chromium background/phone-home subsystems disabled:
+`disable-background-networking`, `disable-domain-reliability`,
+`disable-component-update`, `disable-features=NetworkTimeServiceQuerying,
+Translate,OptimizationHints,MediaRouter`, and `disable-breakpad`. The app
+should only talk to Proton. To opt out, set `disableHardening: true` in
+`app.config.js`. Verify with:
+
+```bash
+sudo tcpdump -n -i any 'port 53 or port 443' | grep -Ei 'google|gstatic|gvt|1e100'
+```

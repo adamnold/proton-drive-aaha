@@ -24,5 +24,11 @@ module.exports = {
   // Restrict in-app navigation to these host suffixes. Anything else
   // opens in the external browser. Keeps the wrapper feeling like ONE app.
   // Leave as [] to allow all in-app navigation.
-  allowedHosts: ["proton.me"]
+  allowedHosts: ["proton.me"],
+
+  // PRIVACY HARDENING (default: ON). Disables Chromium's background
+  // networking, domain-reliability beacons, component updates, network-time
+  // queries, translate, optimization hints, and crash metrics, so the app
+  // only talks to Proton. Set to true only if something breaks.
+  disableHardening: false
 };
