@@ -1,42 +1,24 @@
 {
-  "name": "proton-drive",
-  "productName": "Proton Drive",
-  "version": "1.1.1",
-  "description": "Proton Drive desktop app (Electron wrapper)",
-  "main": "src/main.js",
-  "author": "Adam And His Agents (AAHA)",
-  "license": "Apache-2.0",
+  "name": "proton-drive-aaha", "productName": "Proton Drive", "desktopName": "com.adamandhisagents.protondrive", "version": "1.2.0",
+  "description": "Unofficial Proton Drive desktop application for Linux by Adam And His Agents",
+  "main": "src/main.js", "author": "Adam And His Agents (AAHA)", "license": "Apache-2.0",
   "scripts": {
-    "start": "electron .",
-    "dist": "electron-builder --linux"
+    "start": "electron .", "check": "node --check src/main.js && node --check src/policy.js && node --check app.config.js && node scripts/validate-config.js",
+    "test": "node --test", "icons": "bash scripts/generate-icons.sh", "dist": "electron-builder --linux"
   },
-  "devDependencies": {
-    "electron": "^31.0.0",
-    "electron-builder": "^24.13.3"
-  },
+  "devDependencies": { "electron": "43.1.0", "electron-builder": "26.15.3" },
   "build": {
-    "appId": "com.adamandhisagents.protondrive",
-    "productName": "Proton Drive",
-    "asar": true,
-    "files": [
-      "src/**/*",
-      "package.json"
-    ],
+    "appId": "com.adamandhisagents.protondrive", "productName": "Proton Drive", "asar": true,
+    "files": ["src/**/*", "app.config.js", "build/icons/**/*", "package.json"],
     "linux": {
-      "target": [
-        "dir",
-        "AppImage"
-      ],
-      "category": "Network",
-      "icon": "icons",
-      "executableName": "proton-drive",
-      "artifactName": "proton-drive-aaha-${version}-${arch}.AppImage",
-      "desktop": {
-        "Name": "Proton Drive",
-        "Comment": "Secure encrypted cloud storage",
-        "Categories": "Network;FileTransfer;",
-        "StartupWMClass": "Proton Drive"
-      }
+      "target": ["dir", "AppImage"], "category": "Network", "icon": "build/icons",
+      "executableName": "proton-drive-aaha",
+      "artifactName": "proton-drive-aaha-v${version}-${arch}.AppImage", "syncDesktopName": true,
+      "desktop": { "entry": {
+        "Name": "Proton Drive", "Comment": "Encrypted cloud storage by Proton",
+        "Categories": "Network;FileTransfer;", "Keywords": "drive;storage;files;proton;",
+        "StartupWMClass": "com.adamandhisagents.protondrive", "Terminal": false, "Type": "Application"
+      }}
     }
   }
 }
