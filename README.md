@@ -8,6 +8,11 @@ Electron is Chromium-based. The wrapper reduces optional Chromium background tra
 
 File/folder upload, drag-and-drop, download, ZIP download, sharing, and Proton authentication use the web application’s normal browser mechanisms without exposing Node APIs.
 
-Run ./build.sh and ./install.sh. Normal uninstall preserves ~/.config/Proton Drive; --purge removes the local profile.
+Run `./build.sh` and then `./install.sh`. The AppImage can run directly from any
+location. Optional desktop integration defaults to
+`~/.local/opt/aaha/proton-drive-aaha`; pass
+`--install-root /absolute/path/proton-drive-aaha` to choose another
+per-application root. Normal uninstall preserves `~/.config/Proton Drive`;
+`--purge` removes it only after receipt and marker validation.
 
 This project is unofficial and is not affiliated with Proton.

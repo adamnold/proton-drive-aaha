@@ -82,7 +82,8 @@ Build a distributable:
 
 1. Fork the repo and create a branch: `git checkout -b fix/short-description`.
 2. Keep changes focused; one logical change per PR.
-3. Test that `./build.sh && ./install.sh` still works and the app launches.
+3. Test the locked build, disposable default/custom install roots, guarded
+   uninstall, profile preservation, explicit purge, and application launch.
 4. Describe what you changed and on which distro/DE you tested it.
 5. Open the PR against `master`.
 
