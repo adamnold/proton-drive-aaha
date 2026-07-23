@@ -1,5 +1,7 @@
 # Privacy and Network Behavior
 
+Last Updated: 2026-07-23
+
 No AAHA analytics are added. Unnecessary Chromium background, update, reporting, translation, optimization, media-routing, and Secure DNS features are disabled; known Google update/telemetry hosts are blocked.
 
 Proton Drive, authentication, encrypted file, document, sharing, and CDN traffic remains required. Downloads are local browser downloads; uploads transmit user-selected content to Proton.
