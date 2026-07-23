@@ -74,6 +74,25 @@ test("default install uses the standards-oriented per-user root and writes safet
   );
 });
 
+test("compatibility aliases use the regular description and remain hidden", (t) => {
+  const fixture = createFixture(t);
+  const installRoot = path.join(fixture.home, "MyLocalApps", config.repoName);
+  const result = run(fixture, "install.sh", ["--install-root", installRoot]);
+  assert.equal(result.status, 0, result.stderr);
+  for (const desktopId of config.compatibilityDesktopIds) {
+    const desktopEntry = fs.readFileSync(
+      path.join(fixture.home, ".local", "share", "applications", `${desktopId}.desktop`),
+      "utf8"
+    );
+    assert.match(desktopEntry, new RegExp(`^Comment=${config.comment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`, "m"));
+    assert.match(
+      desktopEntry,
+      new RegExp(`^Exec="${installRoot.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}/app/${config.executable}"$`, "m")
+    );
+    assert.match(desktopEntry, /^NoDisplay=true$/m);
+  }
+});
+
 test("custom install root is recorded and normal uninstall preserves the profile", (t) => {
   const fixture = createFixture(t);
   const installRoot = path.join(fixture.home, "MyLocalApps", config.repoName);
