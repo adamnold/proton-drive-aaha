@@ -1,7 +1,11 @@
 # Changelog
 
+Last Updated: 2026-07-23
+
 ## v1.3.0 — 2026-07-23
 
+- Reconciled current documentation dates; the existing NOTICE icon wording was
+  already accurate.
 - Restored the regular Proton Drive description on the hidden compatibility
   launcher while preserving its stable KDE panel identity and hidden status.
 - Made validation builds explicitly non-publishing, added regression coverage,
